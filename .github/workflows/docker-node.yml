@@ -22,7 +22,7 @@ jobs:
 
     - name: Extract short SHA
       id: vars
-      run: echo "SHORT_SHA=${GITHUB_SHA: -4}" >> $GITHUB_ENV
+      run: echo "SHORT_SHA=$(echo $GITHUB_SHA | tail -c 5)" >> $GITHUB_ENV
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
